@@ -18,7 +18,7 @@ public class stickman_move : MonoBehaviour
     public GameObject[] diesounds;
     bool ang,a = true;
     public float delay;
-    //public ParticleSystem pa;
+    public ParticleSystem pa;
     public card_throw _card_throw;
     // Start is called before the first frame update
     void Awake()
@@ -43,8 +43,8 @@ public class stickman_move : MonoBehaviour
             if (a && Input.GetButton("Fire1"))
             {
                 a = false;
-                _card_throw.throwing();
-                //pa.Play();
+                //_card_throw.throwing();
+                pa.Play();
                 Invoke("aa", delay);
             }
 
