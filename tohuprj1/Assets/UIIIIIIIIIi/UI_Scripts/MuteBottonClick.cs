@@ -9,6 +9,10 @@ public class MuteBottonClick : MonoBehaviour
     AudioListener audioListener;
     [SerializeField]
     Image muteBottonImage;
+    [SerializeField]
+    Sprite clickedSprite;
+    [SerializeField]
+    Sprite notClickedSprite;
 
     bool isClicked = false;
 
@@ -23,13 +27,13 @@ public class MuteBottonClick : MonoBehaviour
         if(!isClicked)
         {
             audioListener.enabled = false;
-            muteBottonImage.color = Color.red;
+            muteBottonImage.sprite = clickedSprite;
             isClicked = true;
         }
         else if (isClicked)
         {
             audioListener.enabled = true;
-            muteBottonImage.color = Color.white;
+            muteBottonImage.sprite = notClickedSprite;
             isClicked = false;
         }
     }
