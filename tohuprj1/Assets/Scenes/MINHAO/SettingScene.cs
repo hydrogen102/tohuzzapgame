@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SettingScene : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     void Start()
     {
         
