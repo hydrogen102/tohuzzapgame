@@ -20,10 +20,11 @@ public class door : MonoBehaviour
     public void el_destroy()
     {
        all_destroyed = true;
-        for(int i = 0; i < doors.Length; i++)
+        for(int i = 0; i < boxes.Length; i++)
         {
             all_destroyed = all_destroyed && boxes[i].destroed;
         }
+
         if(all_destroyed)
         {
             for (int i = 0; i < doors.Length; i++)
