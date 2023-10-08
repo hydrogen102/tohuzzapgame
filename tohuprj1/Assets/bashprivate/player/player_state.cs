@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_state : MonoBehaviour
+public class player_state : Health
 {
+    public float maxheal;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        maxheal = maxheal;
+        hp = (int)maxheal;
     }
 
 
@@ -15,6 +17,13 @@ public class player_state : MonoBehaviour
     {
         
     }
+    public override void die()
+    {
+        base.die();
+        print("asdf");
+
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         print(collision.gameObject);

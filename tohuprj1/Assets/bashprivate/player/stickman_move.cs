@@ -14,17 +14,18 @@ public class stickman_move : MonoBehaviour
 
     public Animator an;
     scang[] sc;
-    public bool isg = false, died, isred, dashing, infoot;
+    public bool isg = false, died, isred, dashing, infoot, parrying;
     public Transform target;
     public GameObject[] diesounds;
-
-    public float delay, dash = 25f;
+    public int maxdash;
+    public float delay, dash = 25f, dashcount;
     public ParticleSystem pa;
     public card_throw _card_throw;
     public LayerMask layer;
+    public SpriteRenderer dash_bar;
 
     float yvel;
-    bool ang, a = true;
+    bool ang, a = true,b = true;
     Rigidbody2D[] childs;
     // Start is called before the first frame update
     void Awake()
@@ -38,19 +39,35 @@ public class stickman_move : MonoBehaviour
     {
         a = true;
     }
+    void bb()
+    {
+        b = true;
+    }
    public void dash_active()
     {
         dashing = false;
         ri.velocity = Vector2.zero;
     }
 
-    void indestroy()
-    {
-
-    }
-
     void FixedUpdate()
     {
+
+        if(dashcount < maxdash)
+        {
+            dashcount += Time.fixedDeltaTime /1.5f;
+        }
+
+        dash_bar.size = new Vector2(dashcount/1.5f, 1);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashcount >= 1 && b)
+        {
+            b = false;
+            dashcount--;
+            dashorhook(Camera.main.ScreenToWorldPoint(Input.mousePosition), dash);
+            Invoke(nameof(parry), 0.03f);
+            Invoke("dash_active", 0.1f);
+            Invoke("bb", 0.06f);
+        }
         if (!died)
         {
 
@@ -62,7 +79,6 @@ public class stickman_move : MonoBehaviour
                 Invoke("aa", delay);
             }
 
-            bool handed = false;
             isg = false;
 
             for (int i = 1; i < sc.Length; i++)
@@ -107,12 +123,7 @@ public class stickman_move : MonoBehaviour
                     ri.AddForce(Vector3.up * jp + Vector3.right * bounce * bouncedir, ForceMode2D.Impulse);
                 }
             }
-            if (Input.GetButtonDown("dash"))
-            {
-                dashorhook(Camera.main.ScreenToWorldPoint(Input.mousePosition), dash);
 
-                Invoke("dash_active", 0.1f);
-            }
 
             an.SetBool("walk", Input.GetButton("Horizontal"));
             an.SetFloat("horizontal", Input.GetAxisRaw("Horizontal"));
@@ -130,6 +141,16 @@ public class stickman_move : MonoBehaviour
         }
 
         an.SetBool("die", died);
+    }
+
+    void parry()
+    {
+        parrying = true;
+        Invoke(nameof(parryend), 0.08f);
+    }
+    void parryend()
+    {
+        parrying = false;
     }
 
    public void dashorhook(Vector3 pos, float dashspeed)

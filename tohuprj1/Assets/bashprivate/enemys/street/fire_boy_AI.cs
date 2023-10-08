@@ -71,7 +71,7 @@ public class fire_boy_AI : Health
 
     public override void die()
     {
-        print("fire");
+        ani.SetTrigger("die");
     }
 }
  
