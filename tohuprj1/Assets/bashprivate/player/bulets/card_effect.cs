@@ -26,8 +26,13 @@ public class card_effect : MonoBehaviour
         {
             card.GetComponent<Health>().damage(dmg);
         }
-        
-        if(card.CompareTag("parry"))
+        else
+        if (card.CompareTag("Player"))
+        {
+            card.transform.root.GetComponent<Health>().damage(dmg);
+        }
+
+            if (card.CompareTag("parry"))
         {
             if (thispar.subEmitters.subEmittersCount <= 0)
             {
