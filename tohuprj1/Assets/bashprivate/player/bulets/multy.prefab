@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.15
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -340,7 +340,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.25
+      scalar: 0.4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -393,7 +393,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.15
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -979,7 +979,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 5
+        scalar: 3
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4885,7 +4885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
-  bounce: {fileID: 3355505239235571399}
+  bounced_particle: {fileID: 0}
 --- !u!1 &5350973502234412334
 GameObject:
   m_ObjectHideFlags: 0
@@ -9771,7 +9771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
-  bounce: {fileID: 3022069721099651174}
+  bounced_particle: {fileID: 0}
 --- !u!1 &5528389284065548592
 GameObject:
   m_ObjectHideFlags: 0
@@ -14657,7 +14657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
-  bounce: {fileID: 151160317942476378}
+  bounced_particle: {fileID: 0}
 --- !u!1 &7475231991683424105
 GameObject:
   m_ObjectHideFlags: 0
@@ -19542,4 +19542,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
-  bounce: {fileID: 0}
+  bounced_particle: {fileID: 0}

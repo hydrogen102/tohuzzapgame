@@ -12,6 +12,7 @@ TagManager:
   - ball
   - parry
   - enemy
+  - jump
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: light
     uniqueID: 4036374547
+    locked: 0
+  - name: mid_L
+    uniqueID: 833677783
     locked: 0

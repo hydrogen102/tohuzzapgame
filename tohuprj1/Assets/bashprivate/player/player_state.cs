@@ -17,15 +17,11 @@ public class player_state : Health
     {
         
     }
+
     public override void die()
     {
         base.die();
         print("asdf");
 
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        print(collision.gameObject);
     }
 }

@@ -4,10 +4,11 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
+
 public class bulets : MonoBehaviour
 {
     public bool isboom,yellow;
-    public float speed = 10f,rotsp = -0.1f;
+    public float speed = 10f,rotsp = -0.1f,speed_y;
     public Rigidbody2D rb;
     public GameObject plusshot,dieboom;
     
@@ -51,13 +52,20 @@ public class bulets : MonoBehaviour
     {
         if (isboom)
             Instantiate(dieboom, transform.position, transform.rotation);
-        if(col.transform.CompareTag("grab"))
+
+        if (col.transform.CompareTag("ball"))
+        {
+            col.rigidbody.velocity = Vector2.up * speed_y;
+        }
+
+            if (col.transform.CompareTag("grab"))
         {
 
         }
         else
         {
-            Destroy(transform.root.gameObject, 0.01f);
+            Destroy(transform.root.gameObject);
+
         }
     }
 

@@ -13,10 +13,10 @@ public class scang : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(!collision.transform.CompareTag("wps"))
+        if (!collision.transform.CompareTag("wps"))
         {
-        gr = false;
-        points = null;
+            gr = false;
+            points = null;
         }
     }
 
@@ -24,5 +24,13 @@ public class scang : MonoBehaviour
     {
         if (!co.transform.CompareTag("wps"))
             points = co.contacts[0];
+    }
+
+    private void FixedUpdate()
+    {
+        if (points == null)
+        {
+            gr = false;
+        }
     }
 }
